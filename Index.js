@@ -12,8 +12,24 @@ db.serialize(function(){
     db.run("INSERT INTO Classroom VALUES('Watson',100,30)");
     db.run("INSERT INTO Classroom VALUES('Watson',120,50)");
 
-    db.each("SELECT * FROM Classroom", function(err,row){
-        console.log(row);
+    //db.each("SELECT FROM Classroom", function(err,row){
+        //console.log(row);
+   // });
+        
+        // Department table creation
+        db.run("CREATE TABLE Department (Dept_name TEXT, Building TEXT, Budget NUMBER)");
+
+        db.run("INSERT INTO Department VALUES('Biology','Watson',9000)");
+        db.run("INSERT INTO Department VALUES('Comp. Sci.','Taylor',100000)");
+        db.run("INSERT INTO Department VALUES('Elec. Eng.','Taylor',85000)");
+        db.run("INSERT INTO Department VALUES('Finance','Painter',120000)");
+        db.run("INSERT INTO Department VALUES('History','Painter',50000)");
+        db.run("INSERT INTO Department VALUES('Music','Packard',80000)");
+        db.run("INSERT INTO Department VALUES('Physcis','Watson',70000)");
+
+        db.each("SELECT * FROM Department", function(err,row){
+            console.log(row);
+
+        });
 
     });
-});
