@@ -14,9 +14,9 @@ db.serialize(function(){
 
 
     // Question 2 
-    db.each("SELECT Building, Room_number FROM Classroom WHERE Capacity > 50", function(err,row){
-        console.log(row);
-});
+   // db.each("SELECT Building, Room_number FROM Classroom WHERE Capacity > 50", function(err,row){
+        //console.log(row);
+//});
         
         // Department table creation - question 1
         db.run("CREATE TABLE Department (Dept_name TEXT, Building TEXT, Budget NUMBER)");
@@ -27,8 +27,13 @@ db.serialize(function(){
         db.run("INSERT INTO Department VALUES('Finance','Painter',120000)");
         db.run("INSERT INTO Department VALUES('History','Painter',50000)");
         db.run("INSERT INTO Department VALUES('Music','Packard',80000)");
-        db.run("INSERT INTO Department VALUES('Physcis','Watson',70000)");
+        db.run("INSERT INTO Department VALUES('Physcis','Watson',70000)")
 
+        //question 3
+         db.each("SELECT Dept_name FROM Department WHERE Budget > 85000", function(err,row){
+         console.log(row);
+
+     });
        
         
 
