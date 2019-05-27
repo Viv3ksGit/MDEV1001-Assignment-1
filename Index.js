@@ -30,11 +30,15 @@ db.serialize(function(){
         db.run("INSERT INTO Department VALUES('Physcis','Watson',70000)")
 
         //question 3
-         db.each("SELECT Dept_name FROM Department WHERE Budget > 85000", function(err,row){
-         console.log(row);
-
-     });
+         //db.each("SELECT Dept_name FROM Department WHERE Budget > 85000", function(err,row){
+         //console.log(row);
+        //});
        
-        
+        //question 4
+        db.each("SELECT d.Dept_name, SUM(c.Capacity) as 'Total Capacity' FROM Classroom AS c, Department AS d WHERE d.Building = c. Building GROUP BY d.dept_name", function(err,row){
+
+  
+        console.log(row);
+    });
 
     });
